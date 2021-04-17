@@ -1,0 +1,165 @@
+html {
+	scroll-behavior: smooth;
+  }
+body {
+	font-family: 'Roboto Slab', serif;
+
+}
+a.nav-link {
+	color: white !important;
+}
+
+.navbar {
+	background-color: black !important;
+}
+
+li {
+	font-size: 19px;
+	font-weight: 700;
+}
+
+#footer h3, #footer p {
+	font-size: 12px;
+
+}
+
+#footer {
+	background-color: black;
+	color: white;
+	
+	
+}
+
+.d-reservados p {
+	text-align: center;
+}
+
+
+
+
+.posterior li {
+	font-size: 16px;
+}
+
+.color-navba-button {
+	background-color: white;
+}
+
+.redes {
+	margin-top: 250px;
+	margin-left: 15px;
+	position: fixed;
+	height: 300px;
+	/* border: 1px solid red; */
+	width: 70px;
+}
+
+.container-images {
+	height: 300px;
+}
+
+.container-images img {
+	height: inherit;
+	object-fit: cover;
+}
+
+
+ /* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+	.redes, .aside {
+		display: none;
+	}
+	.container-images  {
+		display: flex;
+		justify-content: center;
+	 }
+	 .redes-footer {
+		display: flex !important;
+		margin: auto;
+	}
+ }
+ 
+
+ .gafas-hombre {
+	 border: 1px solid red;
+ }
+ .gafas-hombre-img {
+	border: 1px solid red;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	
+
+ }
+
+ .gafas-hombre-img img {
+	width: inherit !important;
+
+ }
+ 
+ .contenido	{
+	 padding: 0 !important;
+ }
+
+ .img-heigth{
+	height: 65px !important;
+ }
+
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) { 
+	.redes, .aside {
+		display: none;
+	}
+	.container-images {
+    display: flex;
+    justify-content: center;
+ }
+
+ .redes-footer {
+	 display: flex !important;
+	 margin: auto;
+ }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+	.redes, .aside {
+		display: none !important;
+	}
+	.container-images {
+		display: flex;
+		justify-content: center;
+	 }
+	 .redes-footer {
+		margin-left: 100px;
+	}
+	
+ }
+
+ /* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+	.container {
+		margin-left: 75px;
+		width: 900px;
+	}
+	.aside ul li{
+		font-size: 12px !important;
+	}
+	.aside h3 {
+		font-size: 14px;
+		text-align: center;
+	}
+
+	.redes img {
+		height: 40px;
+	}
+	.redes-footer {
+		margin: auto;
+	}
+ }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+/* @media (min-width: 1200px) { 
+	
+} */

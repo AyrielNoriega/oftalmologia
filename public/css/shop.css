@@ -1,0 +1,83 @@
+html {
+  font-size: 14px;
+}
+
+body {
+	background-color: #ffff;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@media (min-width: 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+
+.card-header {
+	height: 190px;
+}
+
+.btn-carrito {
+	border: none;
+	border-radius: 0;
+}
+
+.card {
+	padding: 0;
+	max-width: 260px;
+	border: 0;
+	margin-bottom: 15px !important;
+}
+
+.img-card-header{
+	height: 100%;
+	width: 100%;
+
+}
+
+.card-header {
+	padding: 0;
+}
+
+.title-product {
+	font-size: 16px;
+	margin-bottom: 0;
+}
+
+.price-product{
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.color-footer {
+	color: ivory;
+}
+
+ 
