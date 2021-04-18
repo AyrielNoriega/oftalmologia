@@ -1,20 +1,14 @@
-html {
-  font-size: 14px;
-}
 
 body {
 	background-color: #ffff;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
-}
+} */
 
-.container {
-  max-width: 960px;
-}
 
 .pricing-header {
   max-width: 700px;
@@ -22,6 +16,18 @@ body {
 
 .card-deck .card {
   min-width: 220px;
+}
+
+@media (min-width: 576px) {
+	.card-deck .card {
+		min-width: 220px;
+	}
+}
+
+@media (max-width: 768px) {
+	.card-deck .card {
+		min-width: 250px;
+	}
 }
 
 
@@ -34,14 +40,14 @@ body {
 	user-select: none;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
 	.bd-placeholder-img-lg {
 		font-size: 3.5rem;
 	}
-}
+} */
 
 .card-header {
-	height: 190px;
+	/* height: 190px; */
 }
 
 .btn-carrito {
@@ -50,8 +56,8 @@ body {
 }
 
 .card {
-	padding: 0;
-	max-width: 260px;
+	/* padding: 0; */
+	/* max-width: 260px; */
 	border: 0;
 	margin-bottom: 15px !important;
 }
@@ -80,4 +86,15 @@ body {
 	color: ivory;
 }
 
- 
+
+.btn-social{
+
+	height: 2.5rem;
+	width: 2.5rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	border-radius: 100%;
+}
+	

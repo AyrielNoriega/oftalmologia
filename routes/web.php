@@ -23,6 +23,7 @@ Route::get('about', function () {
     return view('front.about');
 });
  
+ 
 
 Auth::routes();
 

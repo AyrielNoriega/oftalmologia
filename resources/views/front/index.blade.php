@@ -1,53 +1,33 @@
-@extends('front.layout')
+@extends('front.layout.app')
+
+@section('title', 'Optisoft - Inicio')
+
 
 @section('style')
 		        {{-- css adictional --}}
-						<link href="{{ asset('css/layout.css') }}" rel="stylesheet">
-						<link href="{{ asset('css/layout2.css') }}" rel="stylesheet">
+						{{-- <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
+						<link href="{{ asset('css/layout2.css') }}" rel="stylesheet"> --}}
 @endsection
 
 @section('content')
 
 
-		        <!-- Navigation-->
-						<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-							<div class="container">
-									<a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{ asset('assets/img/Logo negro.PNG') }}" style="height: 3rem;" alt="" /></a>
-									<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-											Menu
-											<i class="fas fa-bars ml-1"></i>
-									</button>
-									<div class="collapse navbar-collapse" id="navbarResponsive">
-											<ul class="navbar-nav text-uppercase ml-auto">
-													<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Inicio</a></li>
-													<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/shop') }}">Productos</a></li>
-													<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Servicios</a></li>
-													{{-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Cita</a></li> --}}
-													<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Sobre nosotros</a></li>
-													{{-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Testimonios</a></li> --}}
-													<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contacto</a></li>
-	
-													@if (Route::has('login'))
-															@auth
-															<li class="nav-item">
-																	<a  href="{{ url('/home') }}" class="nav-link js-scroll-trigger">Home</a>
-															</li>
-															@else
-															<li class="nav-item">
-																	<a href="{{ route('login') }}" class="nav-link js-scroll-trigger">Iniciar sesión</a>
-															</li>
-					
-																	@if (Route::has('register'))
-																	<li class="nav-item">
-																			<a href="{{ route('register') }}" class="nav-link js-scroll-trigger">Registro</a>
-																	</li>
-																	@endif
-															@endauth
-													@endif
-											</ul>
-									</div>
-							</div>
-					</nav>
+		<section class="redes">
+			<div class="facebook mb-3">
+				<a href="http://www.facebook.com" target="_blank" >
+				<img src="{{ asset('assets/img/facebook.png') }}" alt="logo facebook" height="30px"> </a> 
+			</div>
+			<div class="whatsapp mb-3">
+				<a href="http://www.whatsapp.com" target="_blank">
+				<img src="{{ asset('assets/img/whatsapp.png') }}" alt="logo whatsapp" height="30px"> </a> 
+			</div>
+			<div class="instagram mb-3">
+				<a href="http://www.instagram.com" target="_blank">
+				<img src="{{ asset('assets/img/instagram.png') }}" alt="logo instagram" height="30px"></a> 
+			</div>
+
+		</section>
+
 					<!-- Masthead-->
 					
 					<header class="masthead">
@@ -277,3 +257,13 @@
 					</section>
 
 @endsection
+
+@section('script')
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+	<!-- Contact form JS-->
+	<script src="{{ asset('assets/mail/jqBootstrapValidation.js') }}"></script>
+	<script src="{{ asset('assets/mail/contact_me.js') }}"></script>
+	<!-- Core theme JS-->
+	<script src="{{ asset('js2/scripts.js') }}"></script>
+@endsection
+
