@@ -1,0 +1,15 @@
+.medical{
+	font-size: 131px;
+	
+}
+
+.card-title{
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.card{
+	text-align: center;
+	background-color: transparent !important;
+	border: none !important;
+}

@@ -22,6 +22,9 @@ Route::get('shop', function () {
 Route::get('about', function () {
     return view('front.about');
 });
+Route::get('services', function () {
+    return view('services.index');
+});
  
  
 
