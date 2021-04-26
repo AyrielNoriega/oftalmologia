@@ -1,6 +1,5 @@
 .medical{
 	font-size: 131px;
-	
 }
 
 .card-title{
@@ -13,3 +12,23 @@
 	background-color: transparent !important;
 	border: none !important;
 }
+
+.btn-service {
+	cursor: pointer;
+	max-width: min-content !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+
+	/*	transition: border-bottom 1s; */
+}
+
+.btn-service:hover{
+	color: #131D47;
+	border-bottom: 1px solid #131D47;
+	/* width: 180px !important;
+  height: 180px !important; */
+
+ 
+}
+
+ 

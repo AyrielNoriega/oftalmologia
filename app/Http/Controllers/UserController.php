@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        // $users = User::orderBy('id', 'DESC')->get();
+        // return view('inicio', compact('users'));
     }
 
     /**
@@ -55,9 +56,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(User $user, $id)
     {
-        //
+        $user = User::find( $id );
+
+        return response()->json( $user );
     }
 
     /**
@@ -69,7 +72,20 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user = User::find($request->id);
+        
+        if ($request->password) {
+            $user->password = bcrypt($request->password);
+        }else {
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->city = $request->city;
+            $user->direction = $request->direction;
+        }
+
+        $user->save();
+
+        return redirect()->back();
     }
 
     /**

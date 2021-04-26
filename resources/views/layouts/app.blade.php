@@ -26,10 +26,13 @@
 
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 
-    @yield('style')
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @yield('style')
+
+    
 </head>
 
 <body>
@@ -65,8 +68,10 @@
                                 </li>
                             @endif
                         @else
+							<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/') }}">Inicio</a></li>
+
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-primary text-uppercase font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -94,7 +99,9 @@
     </div>
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}" ></script>
+
+        @yield('scripts')
 
 </body>
 </html>

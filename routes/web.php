@@ -19,11 +19,11 @@ Route::get('/', function () {
 Route::get('shop', function () {
     return view('front.shop');
 });
+Route::get('edit', function () {
+    return view('users.edit');
+});
 Route::get('about', function () {
     return view('front.about');
-});
-Route::get('services', function () {
-    return view('services.index');
 });
  
  
@@ -31,4 +31,6 @@ Route::get('services', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('index', [App\Http\Controllers\HomeController::class, 'index2']);
+Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+// Route::get('index', [App\Http\Controllers\HomeController::class, 'index2']);
