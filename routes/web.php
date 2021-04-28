@@ -33,4 +33,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
 Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+Route::view('home/ordenes', 'services.ordenes');
 // Route::get('index', [App\Http\Controllers\HomeController::class, 'index2']);
