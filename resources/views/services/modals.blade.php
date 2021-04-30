@@ -133,7 +133,7 @@
   <div class="modal-dialog modal-dialog modal-dialog-scrollable modal-xl">
     <div class="modal-content ">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Ordenes Médicas</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -145,7 +145,7 @@
 							<th scope="col">#</th>
 							<th scope="col">DIAGNOSTICO</th>
 							<th scope="col">FECHA</th>
-							{{-- <th scope="col">ACCIÒN</th> --}}
+							<th scope="col">&nbsp;</th>
 						</tr>
 					</thead>
 					{{-- <tbody>
@@ -154,8 +154,8 @@
 				</table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
       </div>
     </div>
   </div>

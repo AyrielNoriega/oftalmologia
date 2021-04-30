@@ -5,8 +5,8 @@
 
 		{{-- datatable --}}
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css"/>
-		{{-- #009FD9 --}}
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css"/>
+ 
 @endsection
 
 @section('content')
@@ -88,6 +88,9 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+
+	{{-- buttoo dattable --}}
+	<script src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
 
 		<script>
 
@@ -246,30 +249,84 @@
 
 					ordenesMedicas.addEventListener( 'click', function () {
 
-						$('#tableOrder').DataTable({
-                        // responsive: true,
-                        // autoWidth: false
+
+						if ( $.fn.dataTable.isDataTable( '#tableOrder' ) ) {
+
+
+							table = $('#tableOrder').DataTable();
+						}
+						else {
+							table = $('#tableOrder').DataTable( {
+
+	 
+										 
+												processing:true,
+												serverSide:true,
+                        responsive: true,
+												autoWidth: false,
+												language: {
+														processing:     "Procesando...",
+														search:         "Buscar",
+														lengthMenu:    "Mostrar _MENU_ registros",
+														info:           "Mostrando de _START_ a _END_  de _TOTAL_ elementos",
+														infoEmpty:      "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+														infoFiltered:   "(Filtrado de _MAX_ elementos en total)",
+														infoPostFix:    "",
+														loadingRecords: "Cargando...",
+														zeroRecords:    "Nada encontrado...",
+														emptyTable:     "Tabla vacía",
+														paginate: {
+																first:      "Primero",
+																previous:   "Anterior",
+																next:       "Siguiente",
+																last:       "Último"
+														}
+												},
+													// buttons: [
+													// 			'copy', 'excel', 'pdf'
+													// 	],
+
+
+                      
                         // "serverSide": true,
                         "ajax":  "{{ route('ajaxResponseOrders') }}",
                         "columns": [
                             { data: 'id'},
                             { data: 'dx'},
-                            { 
-															// data: 'created_at',
-															data: 'created_at',
-															
-															// render: $.fn.dataTable.render.number( '', '', '/')
-															// render: function ( data, type, row ) {
-															// var date = data;
-															// // return type === "display" || type === "filter" ?
-															// return date.diffforhumans() ;
-															// }
+                            { data: 'created_at',},
+														{
 
-														},
-                            // { data: 'active'},
+															data: 'action'
+														  // "data": null,
+															// "defaultContent": '<a href="" type="button" class="btn btn-primary btn-xs" target="_blank">Ver orden...</a>',
+				 
+ 
+														}
+														
                         ]
+								 
+							} );
+						}
 
-                    });
+						// $('#tableOrder').DataTable({
+            //             responsive: true,
+            //             // autoWidth: false
+            //             // "serverSide": true,
+            //             "ajax":  "{{ route('ajaxResponseOrders') }}",
+            //             "columns": [
+            //                 { data: 'id'},
+            //                 { data: 'dx'},
+            //                 { 
+						// 									// data: 'created_at',
+						// 									data: 'created_at',
+															
+							
+
+						// 								},
+            //                 // { data: 'active'},
+            //             ]
+
+            //         });
 
 						$('#ordenMedicaModal').modal('toggle');
 						

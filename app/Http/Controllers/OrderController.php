@@ -17,10 +17,13 @@ class OrderController extends Controller
         $orders = Order::select('id', 'dx', 'created_at')->get();
  
         return datatables()->of($orders)->editColumn('created_at', function ($request) {
-                return $request->created_at->toDayDateTimeString();
-                    })
-                ->toJson();
-
+                                                    return $request->created_at->formatLocalized( ' %d %B %Y' );
+                                                    })
+                                        ->addColumn('action', function ( $orders ){
+                                            return '<a href="home/showorder/'.$orders->id.'" type="button" class="btn btn-primary btn-xs" target="_blank">Ver orden...</a>';
+                                        } )
+                                        ->rawColumns( ['action'] )
+                                        ->toJson();
         
     }
 
@@ -56,9 +59,10 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Order $order, $id)
     {
-        //
+ 
+       return view('services.viewOrder', [ 'id' => $id ] );
     }
 
     /**

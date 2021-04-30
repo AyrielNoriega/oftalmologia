@@ -30,7 +30,7 @@ Route::get('about', function () {
  
  
 
-Auth::routes();
+Auth::routes(); 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
@@ -38,5 +38,6 @@ Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update
 Route::view('home/ordenes', 'services.ordenes');
 Route::view('home/admin', 'services.admin');
 Route::get( 'ajaxResponseOrders', [App\Http\Controllers\OrderController::class, 'ajaxResponseOrders'])->name('ajaxResponseOrders');
+Route::get( 'home/showorder/{id}', [App\Http\Controllers\OrderController::class, 'show'])->name('show.order');
 
 // Route::get('index', [App\Http\Controllers\HomeController::class, 'index2']);
