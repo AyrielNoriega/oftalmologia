@@ -25,6 +25,8 @@ Route::get('edit', function () {
 Route::get('about', function () {
     return view('front.about');
 });
+
+ 
  
  
 
@@ -34,4 +36,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
 Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 Route::view('home/ordenes', 'services.ordenes');
+Route::view('home/admin', 'services.admin');
+Route::get( 'ajaxResponseOrders', [App\Http\Controllers\OrderController::class, 'ajaxResponseOrders'])->name('ajaxResponseOrders');
+
 // Route::get('index', [App\Http\Controllers\HomeController::class, 'index2']);

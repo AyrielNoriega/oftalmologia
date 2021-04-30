@@ -4,9 +4,10 @@
 
 
 @section('style')
+
 		        {{-- css adictional --}}
-						{{-- <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
-						<link href="{{ asset('css/layout2.css') }}" rel="stylesheet"> --}}
+						{{-- <link href="{{ asset('css/layout.css') }}" rel="stylesheet"> --}}
+						{{-- <link href="{{ asset('css/layout2.css') }}" rel="stylesheet"> --}}
 @endsection
 
 @section('content')

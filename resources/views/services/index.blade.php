@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('style')
-		<link rel="stylesheet" href="{{ asset('css/services.css') }}">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+		{{-- datatable --}}
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css"/>
+		{{-- #009FD9 --}}
 @endsection
 
 @section('content')
@@ -28,7 +32,7 @@
 			<div class="card h-100">
 				{{-- <img src="..." class="card-img-top" alt="..."> --}}
 				<div	iv class="card-body">
-					<div class="btn-service">
+					<div class="btn-service" id="ordenesMedicas">
 						<i class="fas fa-book-medical medical"></i>
 						<h5 class="card-title mt-2">ORDENES MÉDICAS</h5>
 					</div>
@@ -65,141 +69,12 @@
  
 	</div>
 
-	{{-- MODAL --}}
-	<!-- Button trigger modal -->
-{{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userEditModal">
-  Launch static backdrop modal
-</button> --}}
-
-<!-- Modal Actualizar datos-->
-<div class="modal fade" id="userEditModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Actualizar datos</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
  
-
-					<form class="needs-validation" id="actualizarDatosForm" >
-						@csrf
-						<input type="hidden" id="userId" value="{{ Auth::id()}} ">
-						<div class="form-row">
-							<div class="col-md-6 mb-3">
-								<label for="name">Nombre completo</label>
-								<input type="text" class="form-control" id="name" name="name" placeholder="nombre"  " required>
-								<div class="valid-feedback">
-									Looks good!
-								</div>
-							</div>
-							<div class="col-md-6 mb-3">
-								<label for="email">Correo</label>
-								<input type="email" class="form-control" id="email" name="email" placeholder="correo@correo.com"   required>
-								<div class="valid-feedback">
-									Looks good!
-								</div>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="col-md-6 mb-3">
-								<label for="city">Ciudad</label>
-								<input type="text" class="form-control" id="city" name="city" >
-								<div class="invalid-feedback">
-									Please provide a valid city.
-								</div>
-							</div>
-							<div class="col-md-6 mb-3">
-								<label for="direction">Dirección</label>
-								<input type="text" class="form-control" id="direction" name="direction">
-								<div class="invalid-feedback">
-									Please provide a valid direction.
-								</div>
-							</div>
-
-							{{-- <div class="col-md-3 mb-3">
-								<label for="validationCustom05">Zip</label>
-								<input type="text" class="form-control" id="validationCustom05" required>
-								<div class="invalid-feedback">
-									Please provide a valid zip.
-								</div>
-							</div> --}}
-						</div>
- 
-
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-							<button type="submit" class="btn btn-primary">Actualizar...</button>
-						</div>
-
-					</form>
-					
+	{{-- modals --}}
+@include('services.modals')
 
 
- 
-      </div>
-
-    </div>
-  </div>
-</div>
-{{-- END MODAL --}}
-<!-- Modal Cambiar Contraseña-->
-<div class="modal fade" id="cambiarContraseñaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Cambiar contraseña</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
- 
-
-					<form class="needs-validation" id="cambiarContraseñaForm" >
-						@csrf
-						{{-- <input type="hidden" id="userId" value="{{ Auth::id()}} "> --}}
-						<div class="form-group">
-							<label for="password">Escriba su nueva contraseña</label> <span class="formInvalid text-danger"></span>
-							<input type="password" class="form-control" id="password" placeholder="Contraseña" aria-describedby="passwordHelpBlock" required>
-							<small id="passwordHelpBlock" class="form-text text-muted">
-								Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-							</small>
-						</div>
-						<div class="form-group">
-							<label for="password2">Repita la contraseña</label> <span class="formInvalid text-danger"></span>
-							<input type="password" class="form-control" id="password2" name="password" placeholder="Contraseña" required>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-							<button type="submit" class="btn btn-primary">Actualizar...</button>
-						</div>
-
-					</form>
-					
-
-
- 
-      </div>
-
-    </div>
-  </div>
-</div>
-{{-- END MODAL --}}
-
-	<footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2021 - 2022 Oftisoft</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacidad</a></li>
-      <li class="list-inline-item"><a href="#">Termninos</a></li>
-      <li class="list-inline-item"><a href="#">Soporte</a></li>
-    </ul>
-  </footer>
-
-
-</div>
+</div> {{-- END CONTAINER --}}
 
 	
 @endsection
@@ -208,6 +83,11 @@
 @section('scripts')
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+	{{-- datatable --}}
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
 
 		<script>
 
@@ -360,8 +240,42 @@
 
 					} );
 
-				// END READY
-			});
+					// ORDENES MEDICAS
+
+					var ordenesMedicas = document.querySelector('#ordenesMedicas')
+
+					ordenesMedicas.addEventListener( 'click', function () {
+
+						$('#tableOrder').DataTable({
+                        // responsive: true,
+                        // autoWidth: false
+                        // "serverSide": true,
+                        "ajax":  "{{ route('ajaxResponseOrders') }}",
+                        "columns": [
+                            { data: 'id'},
+                            { data: 'dx'},
+                            { 
+															// data: 'created_at',
+															data: 'created_at',
+															
+															// render: $.fn.dataTable.render.number( '', '', '/')
+															// render: function ( data, type, row ) {
+															// var date = data;
+															// // return type === "display" || type === "filter" ?
+															// return date.diffforhumans() ;
+															// }
+
+														},
+                            // { data: 'active'},
+                        ]
+
+                    });
+
+						$('#ordenMedicaModal').modal('toggle');
+						
+					} )
+				
+			}); // END READY
 
 		</script>
 
