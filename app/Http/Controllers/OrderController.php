@@ -17,7 +17,7 @@ class OrderController extends Controller
         $orders = Order::select('id', 'dx', 'created_at')->get();
  
         return datatables()->of($orders)->editColumn('created_at', function ($request) {
-                                                    return $request->created_at->formatLocalized( ' %d %B %Y' );
+                                                    return $request->created_at->isoFormat( 'DD MMMM YYYY, h:mm:ss a' );
                                                     })
                                         ->addColumn('action', function ( $orders ){
                                             return '<a href="home/showorder/'.$orders->id.'" type="button" class="btn btn-primary btn-xs" target="_blank">Ver orden...</a>';
@@ -61,8 +61,8 @@ class OrderController extends Controller
      */
     public function show(Order $order, $id)
     {
- 
-       return view('services.viewOrder', [ 'id' => $id ] );
+       $order = Order::find($id);
+       return view('services.viewOrder', [ 'order' => $order ] );
     }
 
     /**

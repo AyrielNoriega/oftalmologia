@@ -79,6 +79,12 @@ class UserController extends Controller
         }else {
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->type_id = $request->type_id;
+            $user->num_id = $request->num_id;
+            $user->phone = $request->phone;
+            $user->f_nacimiento = $request->f_nacimiento;
+            $user->age = $request->age;
+            $user->sex = $request->sex;
             $user->city = $request->city;
             $user->direction = $request->direction;
         }

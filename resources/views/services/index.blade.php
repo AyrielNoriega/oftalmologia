@@ -104,10 +104,16 @@
 					var id = 	$('#userId').val();
 
 						$.get( '/user/edit/'+id, function ( user ) {
-							// console.log(user);
+							console.log(user);
 
 							$('#name').val( user.name );
-							$('#email').val( user.email);
+							$('#email').val( user.email );
+							$('#type_id').val( user.type_id );
+							$('#num_id').val( user.num_id );
+							$('#phone').val( user.phone);
+							$('#f_nacimiento').val( user.f_nacimiento);
+							$('#age').val( user.age);
+							$('#sex').val( user.sex);
 							$('#city').val( user.city);
 							$('#direction').val( user.direction);
 							$("input[name=_token]").val();
@@ -122,10 +128,16 @@
 					event.preventDefault();
 
 					var id =	$('#userId').val();
-					var name =	$('#name').val();
-					var email =	$('#email').val();
-					var city =	$('#city').val();
-					var direction =	$('#direction').val();
+					var name = $('#name').val();
+					var email = $('#email').val();
+					var type_id = $('#type_id').val();
+					var num_id = $('#num_id').val();
+					var phone = $('#phone').val();
+					var f_nacimiento = $('#f_nacimiento').val();
+					var age = $('#age').val();
+					var sex = $('#sex').val();
+					var city = $('#city').val();
+					var direction = $('#direction').val();
 					var _token2 = $("input[name=_token]").val();
 
 					$.ajax({
@@ -135,6 +147,12 @@
 							id: id,
 							name: name,
 							email: email,
+							type_id: type_id,
+							num_id: num_id,
+							phone: phone,
+							f_nacimiento: f_nacimiento,
+							age: age,
+							sex: sex,
 							city: city,
 							direction: direction,
 							_token: _token2
@@ -269,7 +287,7 @@
 														search:         "Buscar",
 														lengthMenu:    "Mostrar _MENU_ registros",
 														info:           "Mostrando de _START_ a _END_  de _TOTAL_ elementos",
-														infoEmpty:      "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+														infoEmpty:      "Ningún elemento encontrato",
 														infoFiltered:   "(Filtrado de _MAX_ elementos en total)",
 														infoPostFix:    "",
 														loadingRecords: "Cargando...",

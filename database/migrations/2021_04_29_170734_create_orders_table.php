@@ -31,6 +31,7 @@ class CreateOrdersTable extends Migration
             $table->string('add', 20)->nullable();
             $table->string('bifocal', 15)->nullable();
             $table->string('dep', 15)->nullable();
+            $table->string('alt', 15)->nullable();
             $table->text('observaciones')->nullable();
             $table->string('tipo_lente', 15)->nullable();
             $table->string('fotocromatico', 15)->nullable();

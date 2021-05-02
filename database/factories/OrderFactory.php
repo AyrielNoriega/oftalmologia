@@ -42,6 +42,7 @@ class OrderFactory extends Factory
             'add' => $this->faker->word,
             'bifocal' => $this->faker->word,
             'dep' => $this->faker->word,
+            'alt' => $this->faker->word,
             'observaciones' => $this->faker->word,
             'tipo_lente' => $this->faker->word,
             'fotocromatico' => $this->faker->word,

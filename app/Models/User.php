@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -17,11 +19,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        
         'name',
         'email',
+        'type_id',
+        'num_id',
+        'phone',
+        'f_nacimiento',
+        'age',
+        'sex',
         'city',
-        'direction',
-        'password',
+        'direction'
     ];
 
     /**
@@ -42,4 +50,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+ 
+    /**
+     * Get all of the orders for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+
 }
