@@ -25,6 +25,9 @@ Route::get('edit', function () {
 Route::get('about', function () {
     return view('front.about');
 });
+Route::get('citas', function () {
+    return view('services.citas');
+});
 
  
  

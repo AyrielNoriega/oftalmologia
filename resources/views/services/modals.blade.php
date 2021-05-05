@@ -175,16 +175,7 @@
 {{-- END MODAL --}}
 
 
-
-
-
 {{-- MODAL ORDENES MÉDICAS --}}
-
-
-<!-- Button trigger modal -->
-{{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-  Launch static backdrop modal
-</button> --}}
 
 <!-- Modal -->
 <div class="modal fade " id="ordenMedicaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -210,6 +201,115 @@
  
 					</tbody> --}}
 				</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{-- END MODAL --}}
+
+
+{{-- MODAL CITAS MÉDICAS --}}
+
+<!-- Modal -->
+<div class="modal fade " id="citaMedicaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog modal-dialog-scrollable ">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Citas Médicas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+				<div class="container">
+					{{-- <div class="row">
+						<div class="col mt-4 mb-3">
+							<h2>Citas médicas</h2>
+							<p>AYRIEL NORIEGA MONROY - CC 1027544333</p>
+						</div>
+					</div> --}}
+			
+					<div class="row">
+						<div class="col">
+							<form>
+								{{-- <div class="form-group">
+									<label for="exampleFormControlInput1">Email address</label>
+									<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+								</div> --}}
+								<div class="form-group">
+									<label for="ciudad">Ciudad</label>
+									<select class="form-control" id="ciudad" name="ciudad">
+										<option selected>Seleccione Ciudad</option>
+										<option>Bogotá</option>
+										<option>Cali</option>
+										<option>Valle</option>
+										<option>Cauca</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="especialidad">Especialidad</label>
+									<select   class="form-control" id="especialidad" name="especialidad">
+										<option selected>Seleccione Especialidad</option>
+										<option>EPS Optometris</option>
+										<option>Medicina Prepagada Optometria</option>
+										<option>Premium Optometria</option>
+										<option>Otro</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="sede">Sede</label>
+									<select   class="form-control" id="sede" name="sede">
+										<option selected>Seleccione sede</option>
+										<option>Principal</option>
+										<option>Segundaria</option>
+			 
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="fecha">Fecha</label>
+									<input class=" w-100" type="date" name="fecha" id="fecha">
+								</div>
+			
+								<div class="form-row">
+									<div class="col">
+										<label for="horaDesde">Hora</label>
+										<input type="time" class="form-control" name="horaDesde" id="horaDesde">
+									</div>
+									<div class="col">
+										<label for="horaHasta">Hora</label>
+										<input type="time" class="form-control" name="horaHasta" id="horaHasta">
+									</div>
+			 
+								</div>
+			
+								<div class="form-group">
+									<div class="col text-center mt-2">
+										<label for="fecha">Fecha</label>
+										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Lunes</button>
+										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Martes</button>
+										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Miercoles</button>
+										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Jueves</button>
+										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Viernes</button>
+										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Sabado</button>
+										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Domingo</button>
+									</div>
+								</div>
+			
+			 
+			
+			 
+							</form>
+						</div>
+					</div>
+			
+					
+				</div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

@@ -12,8 +12,14 @@
 @section('content')
 
 <div class="container">
-	<div class="row my-md-5 my-4  mx-3 ">
+	<div class="row my-md-3 my-2  mx-3 ">
 		<h3>Officina virtual</h3>
+	</div>
+	<div class="row">
+		<div class="col">
+			<h2>Citas médicas</h2>
+			<p>AYRIEL NORIEGA MONROY - CC 1027544333</p>
+		</div>
 	</div>
 	<div class="row row-cols-1 row-cols-md-3 ">
 		<div class="col col-md-3 mb-4">
@@ -21,7 +27,7 @@
 				{{-- <i class="fas fa-file-medical medical"></i> --}}
 				{{-- <img src="{{ asset('assets/img/default.png') }}" class="card-img-top" alt="..."> --}}
 				<div class="card-body">
-					<div class="btn-service">
+					<div class="btn-service" id="citasMedicas">
 						<i class="fas fa-user-md medical "></i>
 						<h5 class="card-title mt-2">CITAS MÉDICAS</h5>
 					</div>
@@ -300,12 +306,7 @@
 																last:       "Último"
 														}
 												},
-													// buttons: [
-													// 			'copy', 'excel', 'pdf'
-													// 	],
-
-
-                      
+                     
                         // "serverSide": true,
                         "ajax":  "{{ route('ajaxResponseOrders') }}",
                         "columns": [
@@ -315,9 +316,6 @@
 														{
 
 															data: 'action'
-														  // "data": null,
-															// "defaultContent": '<a href="" type="button" class="btn btn-primary btn-xs" target="_blank">Ver orden...</a>',
-				 
  
 														}
 														
@@ -325,30 +323,23 @@
 								 
 							} );
 						}
-
-						// $('#tableOrder').DataTable({
-            //             responsive: true,
-            //             // autoWidth: false
-            //             // "serverSide": true,
-            //             "ajax":  "{{ route('ajaxResponseOrders') }}",
-            //             "columns": [
-            //                 { data: 'id'},
-            //                 { data: 'dx'},
-            //                 { 
-						// 									// data: 'created_at',
-						// 									data: 'created_at',
-															
-							
-
-						// 								},
-            //                 // { data: 'active'},
-            //             ]
-
-            //         });
+ 
 
 						$('#ordenMedicaModal').modal('toggle');
 						
 					} )
+
+
+					// CITAS MEDICAS
+					var citasMedicas = document.querySelector('#citasMedicas')
+
+					citasMedicas.addEventListener('click', function () {
+		 
+
+
+						
+						$('#citaMedicaModal').modal('toggle');
+					});
 				
 			}); // END READY
 
