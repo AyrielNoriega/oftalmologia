@@ -153,10 +153,7 @@
 									<!-- Services-->
 									<section class="page-section" >
 											<div class="container">
-													{{-- <div class="text-center"> --}}
-															{{-- <h2 class="section-heading text-uppercase">Services</h2> --}}
-															{{-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3> --}}
-													{{-- </div> --}}
+
 													<div class="row text-center">
 															<div class="col-md-4">
 																	<span class="fa-stack fa-4x">
@@ -164,7 +161,7 @@
 																			<i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
 																	</span>
 																	<h4 class="my-3">Envíos a nivel nacional</h4>
-																	<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+																	{{-- <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p> --}}
 															</div>
 															<div class="col-md-4">
 																	<span class="fa-stack fa-4x">
@@ -172,7 +169,6 @@
 																			<i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
 																	</span>
 																	<h4 class="my-3">Diagnostico Oftalmológico</h4>
-																	<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
 															</div>
 															<div class="col-md-4">
 																	<span class="fa-stack fa-4x">
@@ -180,14 +176,13 @@
 																			<i class="fas fa-lock fa-stack-1x fa-inverse"></i>
 																	</span>
 																	<h4 class="my-3">Garantías hasta por un año</h4>
-																	<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
 															</div>
 													</div>
 											</div>
 									</section>
 	
 					<!-- Testimonios-->
-					<section class="page-section bg-light" id="team">
+					{{-- <section class="page-section bg-light" id="team">
 							<div class="container">
 									<div class="text-center">
 											<h2 class="section-heading text-uppercase">Testimonios</h2>
@@ -217,34 +212,34 @@
 											</div>
 									</div>
 							</div>
-					</section>
+					</section> --}}
 	
 					<!-- Contact-->
 					<section class="page-section" id="contact">
 							<div class="container">
 									<div class="text-center">
-											<h2 class="section-heading text-uppercase">Contactanos</h2>
-											<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+											<h2 class="section-heading text-uppercase">Contáctanos</h2>
+
 									</div>
 									<form id="contactForm" name="sentMessage" novalidate="novalidate">
 											<div class="row align-items-stretch mb-5">
 													<div class="col-md-6">
 															<div class="form-group">
-																	<input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name." />
+																	<input class="form-control" id="name" type="text" placeholder="Tu nombre *" required="required" data-validation-required-message="Ingresa tu nombre." />
 																	<p class="help-block text-danger"></p>
 															</div>
 															<div class="form-group">
-																	<input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address." />
+																	<input class="form-control" id="email" type="email" placeholder="Tu correo *" required="required" data-validation-required-message="Ingresa tu correo." />
 																	<p class="help-block text-danger"></p>
 															</div>
 															<div class="form-group mb-md-0">
-																	<input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number." />
+																	<input class="form-control" id="phone" type="tel" placeholder="Tu teléfono *" required="required" data-validation-required-message="Ingresa tu telefono." />
 																	<p class="help-block text-danger"></p>
 															</div>
 													</div>
 													<div class="col-md-6">
 															<div class="form-group form-group-textarea mb-md-0">
-																	<textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+																	<textarea class="form-control" id="message" placeholder="Tu mensaje *" required="required" data-validation-required-message="Ingresa tu mensaje."></textarea>
 																	<p class="help-block text-danger"></p>
 															</div>
 													</div>

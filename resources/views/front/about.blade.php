@@ -1,6 +1,6 @@
 @extends('front.layout.app')
 
-@section('title', 'Optisoft - Inicio')
+@section('title', 'Optisoft - Sobre nosotros')
 
 
 @section('style')

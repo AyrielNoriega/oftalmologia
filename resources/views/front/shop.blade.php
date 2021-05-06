@@ -1,6 +1,6 @@
 @extends('front.layout.app')
 
-@section('title', 'Optisoft - Shop')
+@section('title', 'Optisoft - Tienda')
 
 @section('style')
     {{-- css adictional --}}

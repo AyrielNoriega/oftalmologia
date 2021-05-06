@@ -28,7 +28,7 @@
 
   <div class="py-5 text-center">
     <img class="d-block mx-auto mb-4" src="{{ asset('assets/img/Logo negro.PNG') }}" alt="optisoft" width="120" >
-    <h2>Oftisoft</h2>
+    <h2>Optisoft</h2>
     <p class="lead"><span>CC Campanario</span> <span class="">TELEFONO 999999999</span>  </p>
 		<p class="lead">CARRERA 9 #49-55, Popayan Cauca-Colombia </p>
  
@@ -47,9 +47,9 @@
 			<p class="text-uppercase"><b>Dirección: </b> {{ empty( $order->user->direction ) ? '---' : $order->user->direction }} </p>
 		</div>
 		<div class="col">
-			<p><b>Tipo ID: </b> {{ empty( $order->user->type_id ) ? '---' : $order->user->type_id }} </p>
+			<p><b>Tipo DOC IDENTIDAD: </b> {{ empty( $order->user->type_id ) ? '---' : $order->user->type_id }} </p>
 			<p class="text-uppercase"><b>Sexo: </b> {{ empty( $order->user->sex ) ? '---' : $order->user->sex }} </p>
-			<p><b>Historial/ID: </b> {{ empty( $order->user->num_id ) ? '---' : $order->user->num_id }} </p>
+			<p><b>Historial/DOC IDENTIDAD: </b> {{ empty( $order->user->num_id ) ? '---' : $order->user->num_id }} </p>
 		</div>
 
 	</div>
