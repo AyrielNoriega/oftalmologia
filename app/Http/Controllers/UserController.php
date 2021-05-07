@@ -12,10 +12,16 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        // $users = User::orderBy('id', 'DESC')->get();
-        // return view('inicio', compact('users'));
+        $User = User::select('id', 'num_id', 'name', 'phone')->get();
+ 
+        return datatables()->of($User) ->addColumn('action', function ( $User ){
+                                            return '<a href="home/showorder/'.$User->id.'" type="button" class="btn btn-primary btn-xs" target="_blank">Ver usuario...</a>';
+                                        } )
+                                        ->rawColumns( ['action'] )
+                                        ->toJson();
     }
 
     /**

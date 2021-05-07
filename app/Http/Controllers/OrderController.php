@@ -29,7 +29,16 @@ class OrderController extends Controller
 
     public function index()
     {
-        //
+        $orders = Order::select('id', 'dx', 'created_at')->get();
+ 
+        return datatables()->of($orders)->editColumn('created_at', function ($request) {
+                                                    return $request->created_at->isoFormat( 'DD MMMM YYYY, h:mm:ss a' );
+                                                    })
+                                        ->addColumn('action', function ( $orders ){
+                                            return '<a href="home/showorder/'.$orders->id.'" type="button" class="btn btn-primary btn-xs" target="_blank">Ver orden...</a>';
+                                        } )
+                                        ->rawColumns( ['action'] )
+                                        ->toJson();
     }
 
     /**

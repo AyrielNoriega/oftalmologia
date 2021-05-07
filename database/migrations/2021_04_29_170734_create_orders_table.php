@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId ('user_id');
+            $table->foreignId ('medico_id');
               
             $table->string('od_esf', 15)->nullable();
             $table->string('od_cyl', 15)->nullable();
@@ -39,7 +40,12 @@ class CreateOrdersTable extends Migration
             $table->string('filtro', 15)->nullable();
             $table->string('dx', 15)->nullable();
 
+
+            // $table->foreignId('imageable_id');
+            // $table->string('imageable_type');
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('medico_id')->references('id')->on('medicos');
             $table->timestamps();
         });
     }

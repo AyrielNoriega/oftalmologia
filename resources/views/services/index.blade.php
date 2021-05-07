@@ -13,7 +13,7 @@
 
 <div class="container">
 	<div class="row my-md-3 my-2  mx-3 ">
-		<h3>Officina virtual</h3>
+		<h3>Oficina virtual</h3>
 	</div>
 	<div class="row">
 		<div class="col">

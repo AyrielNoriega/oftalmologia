@@ -37,19 +37,19 @@
 	<div class="row mb-4">
 		<div class="col">
 
-			<p><b> F. Inscripción: </b> {{ empty( $order->user->created_at ) ? '---' : $order->user->created_at->isoFormat( 'DD MMMM  YYYY, h:mm:ss a' ) }} </p>
-			<p><b>F. Nacimiento: </b>{{ empty( $order->user->f_nacimiento ) ? '---' : $order->user->f_nacimiento }}</p>
-			<p><b> Teléfono: </b> {{ empty( $order->user->phone ) ? '---' : $order->user->phone }}</p>
+			<p class="text-uppercase"><b> F. Inscripción: </b> {{ empty( $order->user->created_at ) ? '---' : $order->user->created_at->isoFormat( 'DD MMMM  YYYY, h:mm:ss a' ) }} </p>
+			<p class="text-uppercase"><b>F. Nacimiento: </b>{{ empty( $order->user->f_nacimiento ) ? '---' : $order->user->f_nacimiento }}</p>
+			<p class="text-uppercase"><b> Teléfono: </b> {{ empty( $order->user->phone ) ? '---' : $order->user->phone }}</p>
 		</div>
 		<div class="col">
 			<p class="text-uppercase"><b>Nombre: </b> {{ $order->user->name }} </p>
-			<p><b>Edad: </b> {{ empty( $order->user->age ) ? '---' : $order->user->age }} </p>
+			<p class="text-uppercase"><b>Edad: </b> {{ empty( $order->user->age ) ? '---' : $order->user->age }} </p>
 			<p class="text-uppercase"><b>Dirección: </b> {{ empty( $order->user->direction ) ? '---' : $order->user->direction }} </p>
 		</div>
 		<div class="col">
-			<p><b>Tipo DOC IDENTIDAD: </b> {{ empty( $order->user->type_id ) ? '---' : $order->user->type_id }} </p>
+			<p class="text-uppercase"><b>Tipo Doc Identidad: </b> {{ empty( $order->user->type_id ) ? '---' : $order->user->type_id }} </p>
 			<p class="text-uppercase"><b>Sexo: </b> {{ empty( $order->user->sex ) ? '---' : $order->user->sex }} </p>
-			<p><b>Historial/DOC IDENTIDAD: </b> {{ empty( $order->user->num_id ) ? '---' : $order->user->num_id }} </p>
+			<p class="text-uppercase"><b>Historial/Doc Identidad: </b> {{ empty( $order->user->num_id ) ? '---' : $order->user->num_id }} </p>
 		</div>
 
 	</div>

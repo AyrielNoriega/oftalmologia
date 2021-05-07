@@ -36,11 +36,24 @@ Route::get('citas', function () {
 Auth::routes(); 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
 Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
 Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+
+
 Route::view('home/ordenes', 'services.ordenes');
-Route::view('home/admin', 'services.admin');
+Route::view('home/admin', 'services.admin.index');
+
+Route::get( 'orden/all', [App\Http\Controllers\OrderController::class, 'index'])->name('orden.all');
 Route::get( 'ajaxResponseOrders', [App\Http\Controllers\OrderController::class, 'ajaxResponseOrders'])->name('ajaxResponseOrders');
 Route::get( 'home/showorder/{id}', [App\Http\Controllers\OrderController::class, 'show'])->name('show.order');
+
+Route::get( 'medico/index', [App\Http\Controllers\MedicoController::class, 'index'])->name('medico.index');
+
+ 
+
+ 
 
 // Route::get('index', [App\Http\Controllers\HomeController::class, 'index2']);

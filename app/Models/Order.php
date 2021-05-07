@@ -20,5 +20,15 @@ class Order extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Get the medico that owns the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function medico()
+    {
+        return $this->belongsTo(Medico::class);
+    }
  
 }
