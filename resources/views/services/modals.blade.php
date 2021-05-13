@@ -152,7 +152,7 @@
 							<label for="password">Escriba su nueva contraseña</label> <span class="formInvalid text-danger"></span>
 							<input type="password" class="form-control" id="password" placeholder="Contraseña" aria-describedby="passwordHelpBlock" required>
 							<small id="passwordHelpBlock" class="form-text text-muted">
-								Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+								La contraseña debe tener minimo 8.
 							</small>
 						</div>
 						<div class="form-group">
@@ -242,7 +242,7 @@
 									<label for="exampleFormControlInput1">Email address</label>
 									<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 								</div> --}}
-								<div class="form-group">
+								{{-- <div class="form-group">
 									<label for="ciudad">Ciudad</label>
 									<select class="form-control" id="ciudad" name="ciudad">
 										<option selected>Seleccione Ciudad</option>
@@ -253,16 +253,6 @@
 									</select>
 								</div>
 								<div class="form-group">
-									<label for="especialidad">Especialidad</label>
-									<select   class="form-control" id="especialidad" name="especialidad">
-										<option selected>Seleccione Especialidad</option>
-										<option>EPS Optometris</option>
-										<option>Medicina Prepagada Optometria</option>
-										<option>Premium Optometria</option>
-										<option>Otro</option>
-									</select>
-								</div>
-								<div class="form-group">
 									<label for="sede">Sede</label>
 									<select   class="form-control" id="sede" name="sede">
 										<option selected>Seleccione sede</option>
@@ -270,13 +260,25 @@
 										<option>Segundaria</option>
 			 
 									</select>
+								</div> --}}
+								<div class="form-group">
+									<label for="especialidad">Especialidad</label>
+									<select   class="form-control" id="especialidad" name="especialidad">
+										<option selected>Seleccione Especialidad</option>
+										<option>EPS Optometria</option>
+										<option>Medicina Prepagada Optometria</option>
+										<option>Premium Optometria</option>
+										<option>Otro</option>
+									</select>
 								</div>
+
 								<div class="form-group">
 									<label for="fecha">Fecha</label>
-									<input class=" w-100" type="date" name="fecha" id="fecha">
+									{{-- <input class=" w-100" type="date" name="fecha" id="fecha"> --}}
+									<input type="text" id="datepicker">
 								</div>
 			
-								<div class="form-row">
+								{{-- <div class="form-row">
 									<div class="col">
 										<label for="horaDesde">Hora</label>
 										<input type="time" class="form-control" name="horaDesde" id="horaDesde">
@@ -286,18 +288,17 @@
 										<input type="time" class="form-control" name="horaHasta" id="horaHasta">
 									</div>
 			 
-								</div>
+								</div> --}}
 			
 								<div class="form-group">
+									<label for="" class="mb-0">Turnos disponibles: <span id="numTurnos"></span></label>
 									<div class="col text-center mt-2">
-										<label for="fecha">Fecha</label>
-										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Lunes</button>
-										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Martes</button>
-										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Miercoles</button>
-										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Jueves</button>
-										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Viernes</button>
-										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Sabado</button>
-										<button type="button" class="btn-group btn btn-sm btn-primary rounded-pill">Domingo</button>
+										<div class="btn-group d-block" role="group" aria-label="Basic example" id="horasDisponible">
+											{{-- <button type="button" class="btn btn-sm btn-outline-primary btnSelected ">7:00 am</button> --}}
+										</div>
+										
+
+
 									</div>
 								</div>
 			
@@ -313,6 +314,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Buscar</button>
         {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
       </div>
     </div>

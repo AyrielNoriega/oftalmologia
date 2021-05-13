@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Medico;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
 {
@@ -31,7 +33,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -40,9 +42,25 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        // $user = User::create();
+
+            $user =  new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->type_id = $request->type_id;
+            $user->num_id = $request->num_id;
+            $user->phone = $request->phone;
+            $user->f_nacimiento = $request->f_nacimiento;
+            $user->age = $request->age;
+            $user->sex = $request->sex;
+            $user->city = $request->city;
+            // $user->direction = $request->direction; 
+            $user->password = $request->password; 
+            $user->save();
+
+            return redirect()->back();
     }
 
     /**

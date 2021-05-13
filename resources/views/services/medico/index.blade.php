@@ -102,7 +102,7 @@
 		<script src="{{ asset('js/dashboard.js') }}"></script>
 
     {{-- Validador form create user --}}
-    {{-- <script src="{{ asset('js/validaFormUser.js') }}"></script> --}} 
+    {{-- <script src="{{ asset('js/validaFormUser.js') }}"></script> --}}
 
     <script src="{{ asset('js/serviceAdmin.js') }}" ></script>
     <script src="{{ asset('js/serviceMedic.js') }}" ></script>

@@ -15,12 +15,12 @@ class CreateMedicosTable extends Migration
     {
         Schema::create('medicos', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->bigInteger('num_id');
-            $table->bigInteger('phone');
-            $table->string('email');
-            $table->bigInteger('registro');
-            $table->string('password');
+            $table->string('nombre');
+            $table->bigInteger('numero_id')->unique();
+            $table->bigInteger('telefono')->nullable();
+            $table->string('correo')->unique();
+            $table->bigInteger('registro')->nullable();
+            $table->string('contrasena');
 
             $table->timestamps();
         });

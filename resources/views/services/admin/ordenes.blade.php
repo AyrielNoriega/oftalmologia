@@ -11,7 +11,7 @@
 				<th scope="col">Num Historial</th>
 				<th scope="col">Paciente</th>
 				<th scope="col">Medico</th>
-				<th scope="col">Accion</th>
+				<th scope="col">Accion</th> 
 			</tr>
 		</thead>
 		{{-- <tbody>

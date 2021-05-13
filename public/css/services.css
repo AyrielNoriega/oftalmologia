@@ -59,4 +59,21 @@ body {
 }
 
 
+.formInvalid {
+	color: red !important;
+	display: none;
+	font-size: 12px;
+}
+
+.validacionform{
+	color: red !important;
+	font-size: 12px;
+}
+
+.btnSelected {
+	margin: 2px;
+	border-radius: 50rem !important;
+}
+
+
  

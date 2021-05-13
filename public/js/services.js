@@ -69,7 +69,9 @@
 								// document.getElementById('userAuth').innerHTML  = response.name
 								// document.getElementById('correo').innerHTML  = response.email
 								if( response ){
+
                     $( '#userEditModal' ).modal('hide');
+										
 										toastr["success"]("Se actualiaron sus datos correctamente!")
 
 												toastr.options = {
@@ -161,9 +163,12 @@
 											}
 										}
 									});
+
 						} else {
-								console.log('NO VALIDDO FORM');
-								$( ".formInvalid" ).text( "Las contraseñas no coinciden!" ).show().fadeOut( 3000 );
+								// console.log('NO VALIDDO FORM');
+								document.querySelector('#password').value = null;
+								document.querySelector('#password2').value = null;
+								$( ".formInvalid" ).text( "Las contraseñas no coinciden!" ).show().fadeOut( 4000 );
 						}
 
 

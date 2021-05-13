@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Medico;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreMedicoRequest;
 
 class MedicoController extends Controller
 {
@@ -15,7 +16,7 @@ class MedicoController extends Controller
 
      public function index()
     {
-        $Medico = Medico::select('id', 'num_id', 'name', 'phone')->get();
+        $Medico = Medico::select('id', 'numero_id', 'nombre', 'telefono')->get();
  
         return datatables()->of($Medico) ->addColumn('action', function ( $Medico ){
                                             return '<a href="home/showorder/'.$Medico->id.'" type="button" class="btn btn-primary btn-xs" target="_blank">Ver medico...</a>';
@@ -40,9 +41,20 @@ class MedicoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreMedicoRequest $request)
     {
-        //
+
+            $user =  new Medico();
+            $user->nombre = $request->nombre;
+            $user->numero_id = $request->numero_id;
+            $user->telefono = $request->telefono;
+            $user->correo = $request->correo;
+            $user->registro = $request->registro;
+            $user->contrasena = $request->contrasena;
+
+            $user->save();
+
+            return redirect()->back();
     }
 
     /**

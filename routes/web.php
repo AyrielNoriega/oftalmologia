@@ -31,26 +31,29 @@ Route::get('citas', function () {
 
  
  
- 
-
 Auth::routes(); 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+Route::get('/user/all', [App\Http\Controllers\UserController::class, 'index'])->name('user.all');
 Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+Route::post('user/create', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
 Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 
 
-Route::view('home/ordenes', 'services.ordenes');
-Route::view('home/admin', 'services.admin.index');
+Route::view('/home/ordenes', 'services.ordenes');
+Route::view('/home/admin', 'services.admin.index');
 
-Route::get( 'orden/all', [App\Http\Controllers\OrderController::class, 'index'])->name('orden.all');
-Route::get( 'ajaxResponseOrders', [App\Http\Controllers\OrderController::class, 'ajaxResponseOrders'])->name('ajaxResponseOrders');
-Route::get( 'home/showorder/{id}', [App\Http\Controllers\OrderController::class, 'show'])->name('show.order');
+// Route::get( '/orden/all', [App\Http\Controllers\OrderController::class, 'index'])->name('orden.all');
+Route::get( '/ajaxResponseOrders', [App\Http\Controllers\OrderController::class, 'ajaxResponseOrders'])->name('ajaxResponseOrders');
+Route::get( '/home/showorder/{id}', [App\Http\Controllers\OrderController::class, 'show'])->name('show.order');
+Route::get( '/medico', [App\Http\Controllers\OrderController::class, 'index'])->name('medico.orders');
 
-Route::get( 'medico/index', [App\Http\Controllers\MedicoController::class, 'index'])->name('medico.index');
+Route::get( '/medico/all', [App\Http\Controllers\MedicoController::class, 'index'])->name('medico.all');
+Route::post( '/medico/create', [App\Http\Controllers\MedicoController::class, 'store'])->name('medico.store');
+
+Route::get( '/cita/all', [App\Http\Controllers\CitaController::class, 'index'])->name('cita.index');
 
  
 

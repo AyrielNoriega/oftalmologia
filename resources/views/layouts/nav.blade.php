@@ -30,8 +30,9 @@
 									@endif
 							@else
 									<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/') }}">Inicio</a></li>
-		<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/home') }}">Home</a></li>
-		<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('home/admin') }}">Admin</a></li>
+									<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/home') }}">Home</a></li>
+									<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('home/admin') }}">Home Medico</a></li>
+									<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('home/admin') }}">Admin</a></li>
 
 									<li class="nav-item dropdown">
 											<a id="navbarDropdown" class="nav-link dropdown-toggle text-primary font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
