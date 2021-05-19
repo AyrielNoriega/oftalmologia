@@ -9,6 +9,13 @@ use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        // $this->middleware('log')->only('index');
+        // $this->middleware('subscribed')->except('store');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -58,6 +65,7 @@ class UserController extends Controller
             $user->city = $request->city;
             // $user->direction = $request->direction; 
             $user->password = $request->password; 
+            $user->type = $request->type; 
             $user->save();
 
             return redirect()->back();

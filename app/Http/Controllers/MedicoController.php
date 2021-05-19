@@ -3,20 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Medico;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreMedicoRequest;
 
 class MedicoController extends Controller
 {
  
-    /**
-     * ver todas las citas
-     * 
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+ 
+    }
     public function home() {
 
+        $users = User::all();
 
-        return view('services.medico.index');
+        return view('services.medico.index', [ 'users' => $users ]);
     }
 
 

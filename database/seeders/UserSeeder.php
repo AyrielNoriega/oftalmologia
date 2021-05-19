@@ -19,7 +19,8 @@ class UserSeeder extends Seeder
             'name' => 'wilson',
             'num_id' => '1938142124',
             'email' => 'wilson@gmail.com',
-            'password' => bcrypt(12345)
+            'password' => bcrypt(12345),
+            'type' => 'admin'
         ]);
     }
 }

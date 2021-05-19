@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('direction')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('type', ['paciente', 'medico', 'admin'])->default('paciente');
             $table->rememberToken();
             $table->timestamps();
         });
