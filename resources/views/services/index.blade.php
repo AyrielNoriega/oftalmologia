@@ -116,29 +116,34 @@
 			$( function() {
 
 
-
+				var dia;
 				
-					$( "#datepicker" ).datepicker();
+		 			 $( "#datepicker" ).datepicker();
 
+ 
 					$( "#datepicker" ).change(function (evt) {
 		
 						// Setter
-						$( "#datepicker").datepicker( "option", "dateFormat", "yy-mm-dd" );
+							$( "#datepicker").datepicker( "option", "dateFormat", "yy-mm-dd" );
 
-							console.log(datepicker.value);
+							// console.log("fecha selec: ",datepicker.value);		
+							dia = datepicker.value;
 
 							$.get("/cita/all", { dia: datepicker.value } ,
 								function (data, textStatus, jqXHR) {
 
 									$("#horasDisponible").empty();
 									
-									console.log('data', data);
+									// console.log('data: ', data);
 									for (const key in data) {
 
 										$( '#numTurnos' ).html( "" );
 										$( '#numTurnos' ).html( data.length );
 
-										$('#horasDisponible').append(`<button type="button" class="btn btn-sm btn-outline-primary btnSelected "> ${data[key]} </button>`);
+										// $('#horasDisponible').append(`<button type="button" class="btn btn-sm btn-outline-primary btnSelected "> ${data[key]} </button>`);
+										$('#horasDisponible').append(`<label class="btn btn-outline-primary btnSelected">
+																									<input type="radio" name="options" id="${data[key]}"> ${data[key]}
+																									</label>`);
 
 					
 									}
@@ -149,50 +154,112 @@
 							);
 
 							// Recoger datos luego de cambios
- 
-						
-							var btn = document.getElementsByClassName("btnSelected");
-							for(let e = 0; e <= btn.length; e++){
-								btn[e].onclick = function(){
-									// this.className += " active";
-									console.log('sisisi');
-								};
-							};
-
+							
+							 fecha = datepicker.value
+							console.log('toma: ',fecha);
 						
 					});
 
-
-
-			
+					var hora, especialidad;
 					$('#horasDisponible').change(function (e) { 
-						e.preventDefault();
-						
-						console.log('cambio de btn grp');
+									// e.preventDefault();
+						console.log('cambio de btn grp: ',  e.target.getAttribute("id"));
+						hora = e.target.getAttribute("id");
 					});
-
- 
-					//  (evnt) => {
-					// 	event.preventDefault();
-					// 	var btnSelected = document.getElementsByClassName("btnSelected");
-					// 	for (let i = 0; i < btnSelected.length; i++) { 	btnSelected[i].className = btnSelected[i].className.replace(" active", "") }
-					// 	event.currentTarget.className += " active";
-					// }
-
- 
-					// 	event.preventDefault();
-						// var btnSelected = document.getElementsByClassName("btnSelected");
-						// for (let i = 0; i < btnSelected.length; i++) { 	btnSelected[i].className = btnSelected[i].className.replace(" active", ""); }
-						// event.currentTarget.className += " active";
- 
-
 
 					$('#especialidad').change(function (e) { 
-						e.preventDefault();
-						var especialidad = document.getElementById('especialidad').value;
-							console.log(especialidad);			
+					// var especialidad = document.getElementById('especialidad').value;
+						console.log(e.target.value);	
+						especialidad = e.target.value;
 					});
 
+
+					$( '#formCitas' ).submit(function (e) { 
+						e.preventDefault();
+
+ 
+					 
+						let datos = {
+								hora: hora,
+								dia: dia,
+								especialidad: especialidad,
+								_token: $("input[name=_token]").val()
+
+						}
+
+						console.log("hora: ",hora);
+
+						if ( typeof datos.hora != 'undefined' && typeof datos.dia != 'undefined' && typeof datos.especialidad != 'undefined' ) {
+
+								$( '#guardarCita' ).attr( 'disabled' , true);
+
+								$.post("/cita/store", datos	,
+									function (response, textStatus, jqXHR) {
+										// console.log(response);
+									}
+								)
+								.done(function (response ) {
+									document.getElementById("formCitas").reset(); //reset form
+									$("#horasDisponible").empty(); //limpiar horas disponibles
+
+									$( '#guardarCita' ).attr( 'disabled' , false);
+									$( '#especialidad' ).removeClass( 'invalidForm validForm' );
+									$( '#datepicker' ).removeClass( 'invalidForm validForm' );
+
+									if( response ){
+											$( '#citaMedicaModal' ).modal('hide');
+									
+											toastr["success"](`<br />Cita creada correctamente para el ${dia} a las ${hora}!<br /><br />`)
+
+													toastr.options = {
+														"closeButton": true,
+														"debug": false,
+														"newestOnTop": false,
+														"progressBar": false,
+														"positionClass": "toast-top-right",
+														"preventDuplicates": true,
+														"onclick": null,
+														"showDuration": "300",
+														"hideDuration": "1000",
+														"timeOut": "5000",
+														"extendedTimeOut": "1000",
+														"showEasing": "swing",
+														"hideEasing": "linear",
+														"showMethod": "fadeIn",
+														"hideMethod": "fadeOut"
+													}
+
+															//establecer undefined luego de enviar datos
+															hora = undefined
+															dia = undefined
+															especialidad = undefined
+						
+									}
+
+								});
+							}else {
+
+								if (typeof datos.especialidad == 'undefined') {
+									$( '#especialidad' ).addClass( 'invalidForm' );
+								}else  $( '#especialidad' ).addClass( 'validForm' )
+
+								if (typeof datos.dia == 'undefined') {
+									$( '#datepicker' ).addClass( 'invalidForm' );
+								}else $( '#datepicker' ).addClass( 'validForm' )
+
+								// if (typeof datos.hora == 'undefined') {
+								// 	$( '#especialidad' ).addClass( 'invalid-form' );
+								// }$( '#especialidad' ).addClass( 'validForm' )
+
+							}
+
+
+					});
+
+ 
+
+						 
+ 
 
 
   	} );

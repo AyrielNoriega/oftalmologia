@@ -237,7 +237,8 @@
 			
 					<div class="row">
 						<div class="col">
-							<form>
+							<form id="formCitas">
+								{{-- @csrf --}}
 								{{-- <div class="form-group">
 									<label for="exampleFormControlInput1">Email address</label>
 									<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
@@ -275,7 +276,7 @@
 								<div class="form-group">
 									<label for="fecha">Fecha</label>
 									{{-- <input class=" w-100" type="date" name="fecha" id="fecha"> --}}
-									<input type="text" id="datepicker">
+									<input class="form-control" type="text" id="datepicker" autocomplete="off">
 								</div>
 			
 								{{-- <div class="form-row">
@@ -293,30 +294,27 @@
 								<div class="form-group">
 									<label for="" class="mb-0">Turnos disponibles: <span id="numTurnos"></span></label>
 									<div class="col text-center mt-2">
-										<div class="btn-group d-block" role="group" aria-label="Basic example" id="horasDisponible">
+										<div class="btn-group btn-group-toggle d-block"  data-toggle="buttons" role="group" aria-label="Basic example" id="horasDisponible">
 											{{-- <button type="button" class="btn btn-sm btn-outline-primary btnSelected ">7:00 am</button> --}}
 										</div>
 										
-
-
 									</div>
 								</div>
-			
-			 
-			
+
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+									<button type="submit" class="btn btn-primary" id="guardarCita">Guardar</button>
+									 
+									{{-- <button type="button" class="btn btn-primary">Understood</button> --}}
+								</div>
 			 
 							</form>
 						</div>
 					</div>
-			
 					
 				</div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Buscar</button>
-        {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
-      </div>
+
     </div>
   </div>
 </div>

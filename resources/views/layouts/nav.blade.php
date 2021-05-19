@@ -31,7 +31,7 @@
 							@else
 									<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/') }}">Inicio</a></li>
 									<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('/home') }}">Home</a></li>
-									<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('home/admin') }}">Home Medico</a></li>
+									<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('medico.home') }}">Home Medico</a></li>
 									<li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('home/admin') }}">Admin</a></li>
 
 									<li class="nav-item dropdown">

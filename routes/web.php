@@ -40,20 +40,26 @@ Route::get('/user/all', [App\Http\Controllers\UserController::class, 'index'])->
 Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
 Route::post('user/create', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
 Route::post('/user/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
-
+Route::get('/user/{id}', [App\Http\Controllers\UserController::class, 'show']);
 
 Route::view('/home/ordenes', 'services.ordenes');
 Route::view('/home/admin', 'services.admin.index');
 
 // Route::get( '/orden/all', [App\Http\Controllers\OrderController::class, 'index'])->name('orden.all');
 Route::get( '/ajaxResponseOrders', [App\Http\Controllers\OrderController::class, 'ajaxResponseOrders'])->name('ajaxResponseOrders');
+Route::get( '/ajaxOrders/{id}', [App\Http\Controllers\OrderController::class, 'index']);
 Route::get( '/home/showorder/{id}', [App\Http\Controllers\OrderController::class, 'show'])->name('show.order');
-Route::get( '/medico', [App\Http\Controllers\OrderController::class, 'index'])->name('medico.orders');
 
+Route::get( '/medico', [App\Http\Controllers\OrderController::class, 'index'])->name('medico.orders');
 Route::get( '/medico/all', [App\Http\Controllers\MedicoController::class, 'index'])->name('medico.all');
 Route::post( '/medico/create', [App\Http\Controllers\MedicoController::class, 'store'])->name('medico.store');
+Route::get( '/medico/home', [App\Http\Controllers\MedicoController::class, 'home'])->name('medico.home');
 
 Route::get( '/cita/all', [App\Http\Controllers\CitaController::class, 'index'])->name('cita.index');
+Route::post( '/cita/store', [App\Http\Controllers\CitaController::class, 'store'])->name('cita.store');
+Route::get( '/cita/user', [App\Http\Controllers\CitaController::class, 'show'])->name('citas.user');
+Route::get( '/ajaxCitas/{id}', [App\Http\Controllers\CitaController::class, 'ajaxCitas']);
+
 
  
 

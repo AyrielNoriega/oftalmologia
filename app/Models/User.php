@@ -64,5 +64,15 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
+    /**
+     * Get all of the citas for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function citas()
+    {
+        return $this->hasMany(Cita::class);
+    }
+
 
 }

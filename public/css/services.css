@@ -75,5 +75,17 @@ body {
 	border-radius: 50rem !important;
 }
 
+/* citas medicas */
+
+.invalidForm { 	
+			border-color: red;	
+			box-shadow: 0 0 0 0.2rem rgb(220 52 52 / 25%); 
+}
+
+.validForm{
+	border-color: green;	
+	box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.309); 
+}
+
 
  

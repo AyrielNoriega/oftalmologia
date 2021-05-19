@@ -4,9 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Cita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CitaController extends Controller
 {
+
+
+
+    public function ajaxCitas( $id ){
+
+        $citas = Cita::select('dia', 'especialidad', 'created_at')->where( 'user_id', $id )->get();
+ 
+        return datatables()->of($citas)->editColumn('created_at', function ($request) {
+                                             return $request->created_at->isoFormat( 'DD MMMM YYYY, h:mm:ss a' );
+                                             })
+                                        // ->addColumn('action', function ( $citas ){
+                                        //     return '<a href="/home/showorder/'.$citas->id.'" type="button" class="btn btn-primary btn-xs" target="_blank">Ver orden...</a>';
+                                        // } )
+                                        // ->rawColumns( ['action'] )
+                                        ->toJson();
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +76,6 @@ class CitaController extends Controller
         }
 
         foreach ($horas as $key => $value) { //formatear cada hora y guardarla en array
-            // $cita = strtotime($value->hora); //formatear hora
             $cita = strtotime($value);
             $cadena = date('h:i A', $cita);
 
@@ -85,7 +104,19 @@ class CitaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $hora = date_create( $request->hora );
+        $cita = Cita::create([
+            'hora' => $hora,
+            'dia'  => $request->dia,
+            'especialidad' => $request->especialidad,
+            'user_id' => Auth::id(),
+        ]);
+
+        $cita->save();
+
+        return view('home');
+
     }
 
     /**
@@ -96,7 +127,15 @@ class CitaController extends Controller
      */
     public function show(Cita $cita)
     {
-        //
+        $citas = Cita::select('id', 'hora', 'especialidad' , 'user_id' )->get();
+
+        // $user = User::find
+ 
+        return datatables()->of($citas) ->addColumn('action', function ( $citas ){
+                                            return '<a href="/user/'.$citas->user_id.'" type="button" class="btn btn-primary" target="_blank">Ver usuario...</a>';
+                                        } )
+                                        ->rawColumns( ['action'] )
+                                        ->toJson();
     }
 
     /**

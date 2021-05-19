@@ -8,10 +8,21 @@ use App\Http\Requests\StoreMedicoRequest;
 
 class MedicoController extends Controller
 {
+ 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * ver todas las citas
+     * 
+     */
+    public function home() {
+
+
+        return view('services.medico.index');
+    }
+
+
+    /**
+     * ver todos los medicos creados
+     * 
      */
 
      public function index()

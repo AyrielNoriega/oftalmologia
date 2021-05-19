@@ -27,35 +27,17 @@
       <div class="sidebar-sticky pt-0 shadow ">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link tablinks" onclick="openCity(event, 'dash')" id="defaultOpen" href="#">
+            <a class="nav-link tablinks btnOrdenes" onclick="openMedico(event, 'ordenes')" id="defaultOpen" href="#">
               <span data-feather="home"></span>
-              Dashboard <span class="sr-only">(current)</span>
+              Crear Orden <span class="sr-only">(current)</span>
             </a>
           </li>
 					<li class="nav-item">
-						<a class="nav-link tablinks btnPacientes" onclick="openCity(event, 'pacientes')"  href="#">
+						<a class="nav-link tablinks btnCitas" onclick="openMedico(event, 'citas')"  href="#">
 							<span data-feather="users"></span>
-							Pacientes
+							Ver citas
 						</a>
 					</li>
-					<li class="nav-item ">
-						<a class="nav-link tablinks btnMedicos "  onclick="openCity(event, 'medicos')" href="#">
-							<span data-feather="users"></span>
-							Médicos
-						</a>
-					</li>
-          {{-- <li class="nav-item">
-            <a class="nav-link tablinks btnOrdenes" onclick="openCity(event, 'ordenes')" href="#">
-              <span data-feather="file"></span>
-              Ordenes
-            </a>
-          </li> --}}
-          <li class="nav-item">
-            <a class="nav-link tablinks" href="#">
-              <span data-feather="shopping-cart"></span>
-              Productos
-            </a>
-          </li>
         </ul>
 
       </div>
@@ -64,14 +46,10 @@
     {{-- <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"> --}}
     <section role="main" class="col-md-9  col-lg-10 px-md-4 mt-4 mt-sm-4 mt-md-0">
 
-      @include('services.admin.dash')
 
-      @include('services.admin.pacientes')
 
-      @include('services.admin.medicos')
-
-      {{-- @include('services.admin.ordenes') --}}
-
+      @include('services.medico.orden')
+      @include('services.medico.citas')
 
     </section>
 
@@ -101,10 +79,86 @@
 		{{-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script> --}}
 		<script src="{{ asset('js/dashboard.js') }}"></script>
 
-    {{-- Validador form create user --}}
-    {{-- <script src="{{ asset('js/validaFormUser.js') }}"></script> --}}
+ 
+    <script>
+ 
+ 
+        
+          
+        // MANIPULACION TAP ADMIN
+        function openMedico(evt, page) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(page).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
 
-    <script src="{{ asset('js/serviceAdmin.js') }}" ></script>
-    <script src="{{ asset('js/serviceMedic.js') }}" ></script>
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+
+
+        // END MANIPULACION TAP ADMIN
+
+        document.querySelector('.btnCitas').addEventListener('click', () => {
+
+          if ( $.fn.dataTable.isDataTable( '#tableCitas' ) ) {
+
+              table = $('#tableCitas').DataTable();
+
+          }
+          else {
+                table = $('#tableCitas').DataTable( {
+
+                  processing:true,
+                  serverSide:true,
+                  responsive: true,
+                  autoWidth: false,
+                  language: {
+                      processing:     "Procesando...",
+                      search:         "Buscar",
+                      lengthMenu:    "Mostrar _MENU_ registros",
+                      info:           "Mostrando de _START_ a _END_  de _TOTAL_ elementos",
+                      infoEmpty:      "Ningún elemento encontrato",
+                      infoFiltered:   "(Filtrado de _MAX_ elementos en total)",
+                      infoPostFix:    "",
+                      loadingRecords: "Cargando...",
+                      zeroRecords:    "Nada encontrado...",
+                      emptyTable:     "Tabla vacía",
+                      paginate: {
+                          first:      "Primero",
+                          previous:   "Anterior",
+                          next:       "Siguiente",
+                          last:       "Último"
+                      }
+                  },
+    
+                  // "serverSide": true,
+                  "ajax":  "/cita/user",
+                  // "ajax":  "/ajaxResponseOrders",
+                  "columns": [
+                      { data: 'id'},
+                      { data: 'hora'},
+                      { data: 'especialidad',},
+                      {
+                        data: 'action'
+                      }
+                      
+                  ]
+
+                } );
+            }
+
+        });
+ 
+
+
+    </script>
 
 @endsection

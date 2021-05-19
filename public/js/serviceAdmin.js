@@ -87,62 +87,62 @@
 
 
 
+		// lista de ordenes
+		// var ordenes = document.querySelector('.btnOrdenes');
 
-		var ordenes = document.querySelector('.btnOrdenes');
+		// ordenes.addEventListener('click', function () {
 
-		ordenes.addEventListener('click', function () {
+		// 	if ( $.fn.dataTable.isDataTable( '#tableOrdenes' ) ) {
 
-			if ( $.fn.dataTable.isDataTable( '#tableOrdenes' ) ) {
+		// 	table = $('#tableOrdenes').DataTable();
 
-			table = $('#tableOrdenes').DataTable();
-
-			}
-			else {
-						table = $('#tableOrdenes').DataTable( {
+		// 	}
+		// 	else {
+		// 				table = $('#tableOrdenes').DataTable( {
 					
-							processing:true,
-							serverSide:true,
-							responsive: true,
-							autoWidth: false,
-							language: {
-									processing:     "Procesando...",
-									search:         "Buscar",
-									lengthMenu:    "Mostrar _MENU_ registros",
-									info:           "Mostrando de _START_ a _END_  de _TOTAL_ elementos",
-									infoEmpty:      "Ningún elemento encontrato",
-									infoFiltered:   "(Filtrado de _MAX_ elementos en total)",
-									infoPostFix:    "",
-									loadingRecords: "Cargando...",
-									zeroRecords:    "Nada encontrado...",
-									emptyTable:     "Tabla vacía",
-									paginate: {
-											first:      "Primero",
-											previous:   "Anterior",
-											next:       "Siguiente",
-											last:       "Último"
-									}
-							},
+		// 					processing:true,
+		// 					serverSide:true,
+		// 					responsive: true,
+		// 					autoWidth: false,
+		// 					language: {
+		// 							processing:     "Procesando...",
+		// 							search:         "Buscar",
+		// 							lengthMenu:    "Mostrar _MENU_ registros",
+		// 							info:           "Mostrando de _START_ a _END_  de _TOTAL_ elementos",
+		// 							infoEmpty:      "Ningún elemento encontrato",
+		// 							infoFiltered:   "(Filtrado de _MAX_ elementos en total)",
+		// 							infoPostFix:    "",
+		// 							loadingRecords: "Cargando...",
+		// 							zeroRecords:    "Nada encontrado...",
+		// 							emptyTable:     "Tabla vacía",
+		// 							paginate: {
+		// 									first:      "Primero",
+		// 									previous:   "Anterior",
+		// 									next:       "Siguiente",
+		// 									last:       "Último"
+		// 							}
+		// 					},
 					
-							// "serverSide": true,
-							"ajax":  "/orden/all",
-							// "ajax":  "/ajaxResponseOrders",
-							"columns": [
-									{ data: 'id'},
-									{ data: 'num_id'},
-									{ data: 'name',},
-									{ data: 'phone',},
-									{
+		// 					// "serverSide": true,
+		// 					"ajax":  "/orden/all",
+		// 					// "ajax":  "/ajaxResponseOrders",
+		// 					"columns": [
+		// 							{ data: 'id'},
+		// 							{ data: 'num_id'},
+		// 							{ data: 'name',},
+		// 							{ data: 'phone',},
+		// 							{
 
-										data: 'action'
+		// 								data: 'action'
 
-									}
+		// 							}
 									
-							]
+		// 					]
 			
-				} );
-			}
+		// 		} );
+		// 	}
 
-		})
+		// })
 
 		// end ORDENES
 

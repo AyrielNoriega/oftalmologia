@@ -69,9 +69,12 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $user, $id)
     {
-        //
+        
+
+        $user = User::find( $id );
+        return view('services.medico.medicoUser', [ 'user' => $user ]);
     }
 
     /**
