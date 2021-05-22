@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreOrderRequest;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -20,7 +22,7 @@ class OrderController extends Controller
      */
     public function ajaxResponseOrders()
     {
-        $orders = Order::select('id', 'dx', 'created_at')->get();
+        $orders = Order::select('id', 'dx', 'created_at')->where( 'user_id', Auth::id() )->get();
  
         return datatables()->of($orders)->editColumn('created_at', function ($request) {
                                                     return $request->created_at->isoFormat( 'DD MMMM YYYY, h:mm:ss a' );
@@ -64,9 +66,37 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreOrderRequest $request)
     {
-        //
+        $order = Order::create([
+            'user_id'       => $request->paciente,
+            'medico_id'     => 1,
+            'od_esf'        => $request->od_esf,
+            'od_cyl'        => $request->od_cyl,
+            'od_eje'        => $request->od_eje,
+            'od_codigo'     => $request->od_codigo,
+            'od_av'         => $request->od_av,
+            'oi_esf'        => $request->oi_esf,
+            'oi_cyl'        => $request->oi_cyl,
+            'oi_eje'        => $request->oi_eje,
+            'oi_codigo'     => $request->oi_codigo,
+            'oi_av'         => $request->oi_av,
+            'color'         => $request->color,
+            'add'           => $request->add,
+            'bifocal'       => $request->bifocal,
+            'dep'           => $request->dep,
+            'alt'           => $request->alt,
+            'observaciones' => $request->observaciones,
+            'tipo_lente'    => $request->tipo_lente,
+            'fotocromatico' => $request->fotocromatico,
+            'material'      => $request->material,
+            'filtro'        => $request->filtro,
+            'dx'            => $request->dx
+        ]);
+
+        $order->save();
+
+        return redirect()->back()->with('OrdenCreada', 'ok');
     }
 
     /**

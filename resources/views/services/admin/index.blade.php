@@ -63,6 +63,7 @@
 
     {{-- <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"> --}}
     <section role="main" class="col-md-9  col-lg-10 px-md-4 mt-4 mt-sm-4 mt-md-0">
+      
 
       @include('services.admin.dash')
 
@@ -104,7 +105,8 @@
     {{-- Validador form create user --}}
     {{-- <script src="{{ asset('js/validaFormUser.js') }}"></script> --}} 
 
+    @yield('script')
+
     <script src="{{ asset('js/serviceAdmin.js') }}" ></script>
-    <script src="{{ asset('js/serviceMedic.js') }}" ></script>
 
 @endsection

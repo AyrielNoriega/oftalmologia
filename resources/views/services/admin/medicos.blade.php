@@ -6,7 +6,7 @@
 
 	<div class="row justify-content-md-between mb-3">
 		<h3 class="ml-3">Médicos</h3> 
-		<button class="btn btn-primary ml-3 mr-md-5 btnCrearMedico">Crear Médico</button> 
+		{{-- <button class="btn btn-primary ml-3 mr-md-5 btnCrearMedico">Crear Médico</button>  --}}
 	</div> 
 
 	<table class="table" id="tableMedicos">
@@ -31,7 +31,7 @@
 
 
 <!-- Modal Crear Medico-->
-<div class="modal fade" id="ModalCrearMedico" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="ModalCrearMedico" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -45,7 +45,7 @@
 
 					<form class="needs-validation" id="CrearMedicoForm" >
 						@csrf
-						{{-- <input type="hidden" id="userId" value="{{ Auth::id()}} "> --}}
+				 
 						<div class="form-row">
 							<div class="col-md-6 mb-3">
 								<label for="nombre">Nombre completo</label>
@@ -78,9 +78,7 @@
 							<div class="col-md-6 mb-3">
 								<label for="telefono">Teléfono</label>
 								<input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono"  autocomplete="tel">
-								{{-- <div id="invalid-telefono" class="formInvalid">
-									Este campo es obligatorio
-								</div> --}}
+ 
 							</div>
 						</div>
 
@@ -118,6 +116,7 @@
 									<span class="validacionform" id="validacionFormRegistro"></span>
 								</div>
 						</div>
+			 
 
 						<div class="modal-footer footerMedico">
 							<button type="button" class="btn btn-secondary" id="btnCancelarMedico" data-dismiss="modal">Cancelar</button>
@@ -130,7 +129,7 @@
 
     </div>
   </div>
-</div>
+</div> --}}
 {{-- END MODAL --}}
 
 

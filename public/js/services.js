@@ -9,7 +9,7 @@
 					var id = 	$('#userId').val();
 
 						$.get( '/user/edit/'+id, function ( user ) {
-							console.log(user);
+							// console.log(user);
 
 							$('#name').val( user.name );
 							$('#email').val( user.email );

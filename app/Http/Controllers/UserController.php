@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Medico;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -22,12 +23,22 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function pacientes()
     {
-        $User = User::select('id', 'num_id', 'name', 'phone')->get();
+        $User = User::select('id', 'num_id', 'name', 'phone')->where('type', 'paciente')->get();
  
         return datatables()->of($User) ->addColumn('action', function ( $User ){
-                                            return '<a href="home/showorder/'.$User->id.'" type="button" class="btn btn-primary btn-xs" target="_blank">Ver usuario...</a>';
+                                            return '<a href="/user/'.$User->id.'" type="button" class="btn btn-primary btn-xs" target="_blank">Ver paciente...</a>';
+                                        } )
+                                        ->rawColumns( ['action'] )
+                                        ->toJson();
+    }
+    public function medicos()
+    {
+        $medico = User::select('id', 'num_id', 'name', 'phone')->where('type', 'medico')->get();
+ 
+        return datatables()->of($medico) ->addColumn('action', function ( $medico ){
+                                            return '<a href="/user/'.$medico->id.'" type="button" class="btn btn-primary btn-xs" target="_blank">Ver medico...</a>';
                                         } )
                                         ->rawColumns( ['action'] )
                                         ->toJson();
@@ -52,6 +63,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         // $user = User::create();
+        // dd($request);
 
             $user =  new User();
             $user->name = $request->name;
@@ -64,11 +76,11 @@ class UserController extends Controller
             $user->sex = $request->sex;
             $user->city = $request->city;
             // $user->direction = $request->direction; 
-            $user->password = $request->password; 
+            $user->password = Hash::make($request->password); 
             $user->type = $request->type; 
             $user->save();
 
-            return redirect()->back();
+            return redirect()->back()->with('userCreado', 'ok');
     }
 
     /**

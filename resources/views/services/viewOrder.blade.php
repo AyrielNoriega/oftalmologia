@@ -152,9 +152,9 @@
 				</tbody>
 			</table>
     </div>
-				<div class="col text-center">
+				{{-- <div class="col text-center">
 						<span> Profesional: Wilson Munoz - Registro 1221</span>
-				</div> 
+				</div>  --}}
 	</div>
 
 </div>

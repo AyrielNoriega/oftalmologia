@@ -11,6 +11,32 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'medico_id',
+        'od_esf',
+        'od_cyl',
+        'od_eje',
+        'od_codigo',
+        'od_av',
+        'oi_esf',
+        'oi_cyl',
+        'oi_eje',
+        'oi_codigo',
+        'oi_av',
+        'color',
+        'add',
+        'bifocal',
+        'dep',
+        'alt',
+        'observaciones',
+        'tipo_lente',
+        'fotocromatico',
+        'material',
+        'filtro',
+        'dx',
+    ];
+
     /**
      * Get the user that owns the Order
      *

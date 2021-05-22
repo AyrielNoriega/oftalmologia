@@ -17,7 +17,7 @@ class MedicoController extends Controller
     }
     public function home() {
 
-        $users = User::all();
+        $users = User::where('type', 'paciente')->get();
 
         return view('services.medico.index', [ 'users' => $users ]);
     }

@@ -5,7 +5,7 @@
 <div id="pacientes" class="tabcontent animate__animated animate__fadeIn">
 	<div class="row justify-content-md-between mb-3">
 		<h3 class="ml-3">Pacientes</h3> 
-		<button class="btn btn-primary ml-3 mr-md-5 btnCrearPac">Crear Paciente</button> 
+		{{-- <button class="btn btn-primary ml-3 mr-md-5 btnCrearPac">Crear Paciente</button>  --}}
 	</div> 
 
 	<table class="table" id="tableUsers">
@@ -30,8 +30,8 @@
 
 
 <!-- Modal Crear paciente-->
-<div class="modal fade" id="ModalCrearUser" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+{{-- <div class="modal fade" id="ModalCrearUser" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"> --}}
+  {{-- <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Crear Paciente</h5>
@@ -44,7 +44,7 @@
 
 					<form class="needs-validation" id="CrearUserForm" >
 						@csrf
-						{{-- <input type="hidden" id="userId" value="{{ Auth::id()}} "> --}}
+			 
 						<div class="form-row">
 							<div class="col-md-6 mb-3">
 								<label for="name">Nombre completo</label>
@@ -90,37 +90,29 @@
 							<div class="col-md-4 mb-3">
 								<label for="phone">Teléfono</label>
 								<input type="tel" class="form-control" id="phone" name="phone" placeholder="Teléfono"  >
-								{{-- <div id="invalid-phone" class="formInvalid">
-									Este campo es obligatorio
-								</div> --}}
+					 
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="col-md-4 mb-3">
 								<label for="f_nacimiento">Fecha Nacimiento</label>
 								<input type="date" class="form-control" id="f_nacimiento" name="f_nacimiento" placeholder="Fecha Nacimiento" >
-								{{-- <div id="invalid-f_nacimiento" class="formInvalid">
-									Este campo es obligatorio
-								</div> --}}
+					 
 							</div>
 							<div class="col-md-4 mb-3">
 								<label for="age">Edad</label>
 								<input type="number" class="form-control" id="age" name="age" placeholder="Edad"  >
-								{{-- <div id="invalid-number" class="formInvalid">
-									Este campo es obligatorio
-								</div> --}}
+			 
 							</div>
 							<div class="col-md-4 mb-3">
 								<label for="sex">Sexo</label>
 								{{-- <input type="text" class="form-control" id="sex" name="sex" placeholder="Sexo"  > --}}
-								<select class="form-control" id="sex" name="sex" >
+								{{-- <select class="form-control" id="sex" name="sex" >
 									<option value="Masculino">Masculino</option>
 									<option value="Femenino">Femenino</option>
 									<option value="Otro">Otro</option>
 								</select>
-								{{-- <div id="invalid-sex" class="formInvalid">
-									Este campo es obligatorio
-								</div> --}}
+				 
 							</div>
 						</div>
 
@@ -128,20 +120,16 @@
 							<div class="col-md-6 mb-3">
 								<label for="city">Ciudad</label>
 								<input type="text" class="form-control" id="city" name="city" placeholder="Ciudad" >
-								{{-- <div id="invalid-city" class="formInvalid">
-									Este campo es obligatorio
-								</div> --}}
+						 
 							</div>
 
 							<div class="col-md-6 mb-3">
 								<label for="direction">Dirección</label>
 								<input type="text" class="form-control" id="direction" name="direction" placeholder="Dirección" autocomplete="address-line1">
-								{{-- <div class="invalid-feedback">
-									Please provide a valid direction.
-								</div> --}}
-							</div>
+				 
+							</div> --}}
 
-						</div>
+						{{-- </div>
 							<div class="form-row">
 
 								<div class="col-md-6 mb-3">
@@ -161,9 +149,9 @@
 										</div>
 										
 								</div>
-							</div>
+							</div> --}}
 
-						<div class="modal-footer">
+						{{-- <div class="modal-footer">
 							<button type="button" class="btn btn-secondary" id="btnCancelar" data-dismiss="modal">Cancelar</button>
 							<button type="submit" class="btn btn-primary " id="btnSubmit" disabled>Guardar...</button>
 						</div>
@@ -174,7 +162,7 @@
 
     </div>
   </div>
-</div>
+</div> --}}
 {{-- END MODAL --}}
 
 

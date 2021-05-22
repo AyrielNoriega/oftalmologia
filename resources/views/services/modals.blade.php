@@ -21,14 +21,14 @@
 						<div class="form-row">
 							<div class="col-md-6 mb-3">
 								<label for="name">Nombre completo</label>
-								<input type="text" class="form-control" id="name" name="name" placeholder="nombre" >
+								<input type="text" class="form-control" id="name" name="name" placeholder="nombre" required >
 								<div class="valid-feedback">
 									Looks good!
 								</div>
 							</div>
 							<div class="col-md-6 mb-3">
 								<label for="email">Correo</label>
-								<input type="email" class="form-control" id="email" name="email" placeholder="email"   >
+								<input type="email" class="form-control" id="email" name="email" placeholder="email"   required>
 								<div class="valid-feedback">
 									Looks good!
 								</div>
@@ -38,7 +38,7 @@
 						<div class="form-row">
 							<div class="col-md-4 mb-3">
 								<label for="type_id">Tipo ID</label>
-								<select class="form-control" id="type_id" name="type_id">
+								<select class="form-control" id="type_id" name="type_id" required>
 									<option value="Cc">Cc</option>
 									<option value="Nit">Nit</option>
 									<option value="Pasaporte">Pasaporte</option>
@@ -50,7 +50,7 @@
 							</div>
 							<div class="col-md-4 mb-3">
 								<label for="num_id">ID</label>
-								<input type="number" class="form-control" id="num_id" name="num_id" placeholder="Id"   >
+								<input type="number" class="form-control" id="num_id" name="num_id" placeholder="Id"  required >
 								<div class="valid-feedback">
 									Looks good!
 								</div>
@@ -66,7 +66,7 @@
 						<div class="form-row">
 							<div class="col-md-4 mb-3">
 								<label for="f_nacimiento">Fecha Nacimiento</label>
-								<input type="date" class="form-control" id="f_nacimiento" name="f_nacimiento" placeholder="Fecha Nacimiento">
+								<input type="date" class="form-control" id="f_nacimiento" name="f_nacimiento" placeholder="Fecha Nacimiento" required>
 								<div class="valid-feedback">
 									Looks good!
 								</div>
@@ -81,7 +81,7 @@
 							<div class="col-md-4 mb-3">
 								<label for="sex">Sexo</label>
 								{{-- <input type="text" class="form-control" id="sex" name="sex" placeholder="Sexo"  > --}}
-								<select class="form-control" id="sex" name="sex">
+								<select class="form-control" id="sex" name="sex" required>
 									<option value="Masculino">Masculino</option>
 									<option value="Femenino">Femenino</option>
 									<option value="Otro">Otro</option>
@@ -150,9 +150,9 @@
 						{{-- <input type="hidden" id="userId" value="{{ Auth::id()}} "> --}}
 						<div class="form-group">
 							<label for="password">Escriba su nueva contraseña</label> <span class="formInvalid text-danger"></span>
-							<input type="password" class="form-control" id="password" placeholder="Contraseña" aria-describedby="passwordHelpBlock" required>
-							<small id="passwordHelpBlock" class="form-text text-muted">
-								La contraseña debe tener minimo 8.
+							<input type="password" class="form-control" id="password" placeholder="Contraseña" aria-describedby="passwordHelpBlock" required minlength="8">
+							<small id="passwordHelpBlock" class="form-text text-muted ">
+								<span class="text-danger">	La contraseña debe tener minimo 8 caracteres.</span>
 							</small>
 						</div>
 						<div class="form-group">

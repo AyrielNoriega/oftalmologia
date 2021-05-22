@@ -14,6 +14,8 @@
         <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
         <link href="{{ asset('css/layout2.css') }}" rel="stylesheet">
 
+        <link rel="shortcut icon" href="{{ asset('assets/img/Logo negro.PNG') }}" type="image/x-icon">
+
         <!-- Font Awesome icons (free version)-->
         <link rel="stylesheet" href="{{ asset('fontawesome/fontawesome-free-5.15.1-web/css/all.css') }}">
         

@@ -46,11 +46,11 @@
 													Bienvenid@ <span class="text-uppercase"> {{ Auth::user()->name }}</span>
 											</a>
 
-											<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-													<a class="dropdown-item" href="{{ route('logout') }}"
+											<div class="dropdown-menu dropdown-menu-right border-dark" aria-labelledby="navbarDropdown">
+													<a class="dropdown-item text-dark" href="{{ route('logout') }}"
 														 onclick="event.preventDefault();
 																					 document.getElementById('logout-form').submit();">
-															{{ __('Logout') }}
+														 <span class="text-dark">	Cerrar sesión</span>
 													</a>
 
 													<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

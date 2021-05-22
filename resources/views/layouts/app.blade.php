@@ -15,6 +15,7 @@
     <!-- Font Awesome icons (free version)-->
     <link rel="stylesheet" href="{{ asset('fontawesome/fontawesome-free-5.15.1-web/css/all.css') }}">
     
+    <link rel="shortcut icon" href="{{ asset('assets/img/Logo negro.PNG') }}" type="image/x-icon">
     {{-- <!-- Google fonts-->--}}
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
